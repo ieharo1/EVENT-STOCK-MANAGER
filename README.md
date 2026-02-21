@@ -1,13 +1,10 @@
-# GESTOR DE ALIMENTOS HOGAR
+# EVENT STOCK MANAGER
 
 ---
 
 ## Descripcion
 
-**Gestor de Alimentos Hogar** es una aplicación Android desarrollada en Flutter que permite gestionar alimentos almacenados en:
-
-- **Refrigeración**: Alimentos refrigerados y congelados
-- **Alacena**: Artículos almacenados en despensa
+**Event Stock Manager** es una aplicación Android desarrollada en Flutter para gestionar el inventario de eventos y productos almacenados.
 
 La aplicación funciona 100% offline, sin necesidad de conexión a internet.
 
@@ -15,7 +12,7 @@ La aplicación funciona 100% offline, sin necesidad de conexión a internet.
 
 ## Características
 
-- ✅ Agregar artículos a Refrigeración o Alacena
+- ✅ Agregar artículos al inventario
 - ✅ Buscar artículos en tiempo real
 - ✅ Editar artículos existentes
 - ✅ Eliminar artículos
@@ -31,27 +28,25 @@ La aplicación funciona 100% offline, sin necesidad de conexión a internet.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────┐
-│                        GESTOR DE ALIMENTOS HOGAR                                  │
+│                        EVENT STOCK MANAGER                                        │
 ├────────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                    │
 │  ┌───────────────────────┐                                                        │
 │  │   Pantalla Principal   │                                                        │
-│  │  Refrigeración / Alacena │                                                      │
 │  └──────────────┬────────┘                                                        │
 │                 │                                                                 │
 │                 ▼                                                                 │
 │  ┌──────────────────────────────────────────────────────────────────────────────┐  │
 │  │ Presentación (Screens, Widgets, Providers)                                   │  │
 │  │ - HomeScreen                                                                  │  │
-│  │ - RefrigeracionScreen                                                          │  │
-│  │ - AlacenaScreen                                                               │  │
+│  │ - InventarioScreen                                                            │  │
 │  │ - AboutScreen                                                                 │  │
 │  └──────────────────────────────────────────────────────────────────────────────┘  │
 │                 │                                                                 │
 │                 ▼                                                                 │
 │  ┌──────────────────────────────────────────────────────────────────────────────┐  │
 │  │ Datos (Repository, Database)                                                  │  │
-│  │ - FoodRepository                                                              │  │
+│  │ - ItemRepository                                                              │  │
 │  │ - Hive Database (Offline)                                                     │  │
 │  └──────────────────────────────────────────────────────────────────────────────┘  │
 │                                                                                    │
@@ -76,7 +71,7 @@ La aplicación funciona 100% offline, sin necesidad de conexión a internet.
 ## Estructura del Proyecto
 
 ```
-gestor_alimentos_hogar/
+event_stock_manager/
 │
 ├── lib/
 │   ├── core/
@@ -154,15 +149,11 @@ flutter build apk --release
 ## Uso de la App
 
 ### Pantalla Principal
-- Selecciona **Refrigeración** o **Alacena** para gestionar tus alimentos
+- Navega entre las diferentes secciones del inventario
 
 ### Agregar Artículo
 1. Toca el botón **"+ Agregar"**
-2. Completa el formulario:
-   - Nombre del artículo
-   - Cantidad
-   - Fecha de ingreso
-   - Tipo (Refrigerado/Congelado - solo para Refrigeración)
+2. Completa el formulario con los datos requeridos
 3. Toca **"Guardar"**
 
 ### Editar Artículo
@@ -185,8 +176,8 @@ La aplicación usa **Hive** para persistencia local:
 
 - **Entidad**: FoodItem
   - id: String (UUID)
-  - category: String (Refrigeracion/Alacena)
-  - type: String? (Refrigerado/Congelado)
+  - category: String (categoría del item)
+  - type: String? (tipo de item)
   - name: String
   - quantity: int
   - entryDate: DateTime
@@ -207,3 +198,5 @@ La aplicación usa **Hive** para persistencia local:
 ## Licencia
 
 © 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.
+
+No es software libre. No es redistribuible sin autorización. Es propiedad intelectual privada.
